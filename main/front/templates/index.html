@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static '_style.css' %}" type="text/css" media="">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+<body style="margin-top: 20px; margin-left: 16px; padding-top: 16px;">
+    <div style="margin-bottom: 12px;    ">
+        <h3 style="margin-bottom: 12px;">Slow Down you track</h3>
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form }}<br>
+            <button type="submit" style="
+            cursor: pointer; margin-top: 12px;
+            width: 150px; height: 42px; background: #000;
+            color: #fff; font-size: 18px; font-weight: 400; border-radius: 16px;">Send</button>
+        </form>
+    </div>
+    <div>
+         <td> <audio controls src="http://{{ request.get_host }}/{{ audio_file }}" type="audio/wav" style="width: 250px;">
+             <source src="{{ audio_file }}" type="audio/wav">
+             Your browser does not support the audio element.
+         </audio>
+    </div>
+</body>
+</html>
